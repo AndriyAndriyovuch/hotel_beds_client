@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HotelBedsClient::Config
   def base_url
     @base_url ||= 'https://api.test.hotelbeds.com'

@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe HotelBedsClient do
-  it "has a version number" do
-    expect(HotelBedsClient::VERSION).not_to be nil
-  end
-
-  it "does something useful" do
-    expect(false).to eq(true)
+  it 'has a version number' do
+    expect(HotelBedsClient::VERSION).to be '0.1.0'
   end
 end

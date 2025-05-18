@@ -1,8 +1,75 @@
 AllCops:
   TargetRubyVersion: 3.0
 
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
+require:
+  - rubocop-rspec
 
-Style/StringLiteralsInInterpolation:
-  EnforcedStyle: double_quotes
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/AbcSize:
+  Max: 25
+
+Metrics/ClassLength:
+  Max: 200
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 140
+
+Style/HashSyntax:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 25
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+Style/Proc:
+  Enabled: false
+
+Style/RedundantSelfAssignment:
+  Enabled: false
+
+RSpec/IndexedLet:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+RSpec/HookArgument:
+  Enabled: false
+
+Style/FileWrite:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
