@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class HotelBedsClient::Base < BaseAction
+class HotelBedsClient::Base
   attr_reader :amadeus, :url
 
   BASE_URL = 'https://api.test.hotelbeds.com'

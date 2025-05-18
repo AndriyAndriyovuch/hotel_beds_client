@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'lib/hotel_beds_client/base'
+
 class HotelBedsClient::Booking::Confirmation < HotelBedsClient::Base
   # QUERY PARAMETERS
   # https://developer.hotelbeds.com/documentation/hotels/booking-api/api-reference/#tag/Booking/operation/booking
@@ -264,7 +266,7 @@ class HotelBedsClient::Booking::Confirmation < HotelBedsClient::Base
   # Surname of the passenger.
 
   def call(options: {})
-    post_request(options:)
+    post_request(options: options)
   end
 
   private

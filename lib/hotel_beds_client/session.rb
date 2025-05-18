@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-class HotelBedsClient::Session < Amadeus::Base
+require 'lib/hotel_beds_client/base'
+
+class HotelBedsClient::Session < HotelBedsClient::Base
   class << self
     EXPIRATION_TIME = 30.minutes
 

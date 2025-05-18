@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'lib/hotel_beds_client/base'
+
 class HotelBedsClient::Booking::CheckRate < HotelBedsClient::Base
   # QUERY PARAMETERS
   # https://developer.hotelbeds.com/documentation/hotels/booking-api/api-reference/#tag/CheckRate/operation/checkRate
@@ -57,18 +59,18 @@ class HotelBedsClient::Booking::CheckRate < HotelBedsClient::Base
 
   # rubocop:disable Layout/LineLength
   def call(options: {})
-    options = {
-      rooms: [
-        {
-          rateKey: '20250615|20250616|W|59|95|DBT.DX-1|NRF-PACK-BAR-BB|BB||1~2~0||P@07~~21da1~-136856938~N~~~NRF~~D53174BA07AE47D174014128786505AAUK0004000000000621da1'
-        }
-      ]
-    }
+    # options = {
+    #   rooms: [
+    #     {
+    #       rateKey: '20250615|20250616|W|59|95|DBT.DX-1|NRF-PACK-BAR-BB|BB||1~2~0||P@07~~21da1~-136856938~N~~~NRF~~D53174BA07AE47D174014128786505AAUK0004000000000621da1'
+    #     }
+    #   ]
+    # }
 
-    # options.transform_keys! { |key| key.to_s.camelize(:lower) }
+    options.transform_keys! { |key| key.to_s.camelize(:lower) }
     # destination_url = "#{hotel_codes.join(',')}/details"
 
-    post_request(options:)
+    post_request(options: options)
   end
   # rubocop:enable Layout/LineLength
 

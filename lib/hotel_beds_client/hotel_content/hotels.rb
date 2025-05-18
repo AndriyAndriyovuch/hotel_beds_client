@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'lib/hotel_beds_client/base'
+
 class HotelBedsClient::HotelContent::Hotels < HotelBedsClient::Base
   # QUERY PARAMETERS
   # https://developer.hotelbeds.com/documentation/hotels/content-api/api-reference/#tag/Hotels/operation/hotelsUsingGET
@@ -63,7 +65,7 @@ class HotelBedsClient::HotelContent::Hotels < HotelBedsClient::Base
   def call(options: {})
     options.transform_keys! { |key| key.to_s.camelize(:lower) }
 
-    get_request(options:)
+    get_request(options: options)
   end
 
   private

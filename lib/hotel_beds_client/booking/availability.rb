@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'lib/hotel_beds_client/base'
+
 class HotelBedsClient::Booking::Availability < HotelBedsClient::Base
   # QUERY PARAMETERS
   # https://developer.hotelbeds.com/documentation/hotels/booking-api/api-reference/#tag/Availability/operation/availability
@@ -253,7 +255,7 @@ class HotelBedsClient::Booking::Availability < HotelBedsClient::Base
     # options.transform_keys! { |key| key.to_s.camelize(:lower) }
     # destination_url = "#{hotel_codes.join(',')}/details"
 
-    post_request(options:)
+    post_request(options: options)
   end
 
   private

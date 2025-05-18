@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'lib/hotel_beds_client/base'
+
 class HotelBedsClient::Destinations::Main < HotelBedsClient::Base
   # QUERY PARAMETERS
   # https://developer.hotelbeds.com/documentation/hotels/booking-api/api-reference/#tag/CheckRate/operation/checkRate
@@ -19,14 +21,14 @@ class HotelBedsClient::Destinations::Main < HotelBedsClient::Base
   #   limit	int	allows you to set the number of objects returned in one page (optional)
 
   def call(options: {})
-    options = {
-      fields: 'ALL', language: 'es', country_code: 'ES'
-    }
+    # options = {
+    #   fields: 'ALL', language: 'es', country_code: 'ES'
+    # }
 
-    # options.transform_keys! { |key| key.to_s.camelize(:lower) }
+    options.transform_keys! { |key| key.to_s.camelize(:lower) }
     # destination_url = "#{hotel_codes.join(',')}/details"
 
-    get_request(options:)
+    get_request(options: options)
   end
 
   private
