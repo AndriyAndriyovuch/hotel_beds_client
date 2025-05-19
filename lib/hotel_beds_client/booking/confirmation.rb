@@ -1,6 +1,6 @@
-    # frozen_string_literal: true
+# frozen_string_literal: true
 
-    require_relative '../base'
+require_relative '../base'
 module HotelBedsClient
   module Booking
     class Confirmation < Base
@@ -35,7 +35,8 @@ module HotelBedsClient
       # cardType
       # required
       # string
-      # Enum: "AMEX" "EURO6000" "JCB" "DINERS" "MASTERCARD" "VISA" "MAESTRO" "SWITCH" "SOLO_GB" "AIRPLUS" "EURO6000" "CHINAUNIONPAY" "DISCOVER"
+      # Enum: "AMEX" "EURO6000" "JCB" "DINERS" "MASTERCARD" "VISA" "MAESTRO"
+      #       "SWITCH" "SOLO_GB" "AIRPLUS" "EURO6000" "CHINAUNIONPAY" "DISCOVER"
       # Credit card type.
       #
       # cardNumber

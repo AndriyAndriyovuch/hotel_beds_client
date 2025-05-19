@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative './base'
+require_relative 'base'
 
 class HotelBedsClient::Session < HotelBedsClient::Base
   class << self

@@ -98,7 +98,8 @@ module HotelBedsClient
       #
       # contract
       # string
-      # Filters the results by the contract requested. (NOTE: when using this filter is mandatory to inform availabilityRQ/@aifUse attribute)
+      # Filters the results by the contract requested.
+      # (NOTE: when using this filter is mandatory to inform availabilityRQ/@aifUse attribute)
       #
       # boards
       # object (ApiBoards)
@@ -152,7 +153,8 @@ module HotelBedsClient
       #
       # language
       # string
-      # Language code that defines the language of the response. English will be used by default if this field is not informed.
+      # Language code that defines the language of the response.
+      # English will be used by default if this field is not informed.
       #
       # occupancies
       # required
@@ -244,8 +246,9 @@ module HotelBedsClient
       # inclusions
       # Array of strings
       # Items Value: "RESIDENT_RATES"
-      # Includes additional rates that are normally not exposed in the Availability results. NOTE: Be aware that inclusions
-      # are not filters and as such all of the regular rates are returned with the normally not included ones.
+      # Includes additional rates that are normally not exposed in the Availability results.
+      #  NOTE: Be aware that inclusions are not filters and as such all of the
+      #  regular rates are returned with the normally not included ones.
 
       def call(options: {})
         # options = {
