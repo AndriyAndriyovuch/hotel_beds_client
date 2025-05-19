@@ -18,16 +18,16 @@ module HotelBedsClient
       # required
       # string <date>
       # Check-in date.
-      #
+
       # checkOut
       # required
       # string <date>
       # Check-out date.
-      #
+
       # shiftDays
       # integer <int32> [ 1 .. 5 ]
       # Amount of days after and before the check-in to check availability, keeping the same stay duration.
-      #
+
       # allowOnlyShift
       # boolean
       # Default: true
@@ -250,15 +250,14 @@ module HotelBedsClient
       #  NOTE: Be aware that inclusions are not filters and as such all of the
       #  regular rates are returned with the normally not included ones.
 
-      def call(options: {})
-        # options = {
-        #   stay: { checkIn: '2025-06-15', checkOut: '2025-06-16' },
-        #   occupancies: [{ rooms: 1, adults: 2, children: 0 }],
-        #   hotels: { hotel: [95, 136, 124, 130, 15] }
-        # }
-
-        # options.transform_keys! { |key| key.to_s.camelize(:lower) }
-        # destination_url = "#{hotel_codes.join(',')}/details"
+      def call
+        options = {
+          stay: stay, geolocation: geolocation, filter: filter, boards: boards,
+          rooms: rooms, daily_rate: daily_rate, source_market: source_market,
+          aif_use: aif_use, platform: platform, language: language,
+          occupancies: occupancies, keywords: keywords, hotels: hotels,
+          review: review, accommodations: accommodations, inclusions: inclusions
+        }
 
         post_request(options: options)
       end

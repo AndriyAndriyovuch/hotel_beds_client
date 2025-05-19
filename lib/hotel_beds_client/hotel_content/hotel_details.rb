@@ -17,7 +17,7 @@ module HotelBedsClient
       #   useSecondaryLanguage
       # boolean
       # Defines if you want to receive the descriptions in English if the description is not available in the language requested.
-      def call(hotel_codes:, language:, user_secondary_language:)
+      def call
         options = {
           language: language,
           user_secondary_language: user_secondary_language
