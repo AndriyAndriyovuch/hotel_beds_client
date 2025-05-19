@@ -64,7 +64,21 @@ module HotelBedsClient
       # boolean
       # Sending this parameter as true in the /hotels operations will only return the hotels which possess at least one
       # PMSRoomCode (useful when mapping against the original property codes).
-      def call(options: {})
+      def call
+        options = {
+          destination_code: destination_code,
+          country_code: country_code,
+          codes: codes,
+          include_hotels: include_hotels,
+          fields: fields,
+          language: language,
+          from: to_safe_date(from),
+          to: to_safe_date(to),
+          use_secondary_language: use_secondary_language,
+          last_update_time: to_safe_date(last_update_time),
+          pms_room_code: pms_room_code
+        }.compact
+
         options.transform_keys! { |key| key.to_s.camelize(:lower) }
 
         get_request(options: options)

@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.0.0
   NewCops: enable
   SuggestExtensions: false
 
@@ -12,6 +12,9 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 200
 
+Metrics/ParameterLists:
+  Enabled: false
+
 Layout/LineLength:
   Max: 140
 
@@ -19,6 +22,9 @@ Naming/VariableNumber:
   Enabled: false
 
 Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Style/ArgumentsForwarding:
   Enabled: false
 
 # Style

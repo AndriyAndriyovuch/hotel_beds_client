@@ -4,10 +4,16 @@ module HotelBedsClient
   class Base
     attr_reader :url
 
-    def initialize
-      super
+    def initialize(args = {})
+      raise NonKeywordArgumentsError if args.present? && !args.is_a?(Hash)
 
       @url = [HotelBedsClient.config.base_url, api_type, api_version, request_url].join('/')
+
+      @args = @data = args
+      @args.each do |name, value|
+        self.class.attr_reader(name) unless respond_to?(name)
+        instance_variable_set("@#{name}", value)
+      end
     end
 
     def api_version
@@ -22,6 +28,10 @@ module HotelBedsClient
       raise NotImplementedError
     end
 
+    def self.call(*args, &block)
+      new(*args, &block).call
+    end
+
     def headers
       {
         'Api-key' => HotelBedsClient.config.api_key,
@@ -30,17 +40,17 @@ module HotelBedsClient
     end
 
     def get_request(destination_url = nil, options: {})
-      request = Faraday.get([url, destination_url].compact.join('/'), options, headers)
+      # request = Faraday.get([url, destination_url].compact.join('/'), options, headers)
 
-      JSON.parse(request.body)
+      # JSON.parse(request.body)
     end
 
     def post_request(destination_url = nil, options: {})
-      request = Faraday.post([url, destination_url].compact.join('/'), options.deep_transform_keys! do |key|
-        key.to_s.camelize(:lower)
-      end.to_json, post_headers)
+      # request = Faraday.post([url, destination_url].compact.join('/'), options.deep_transform_keys! do |key|
+      #   key.to_s.camelize(:lower)
+      # end.to_json, post_headers)
 
-      JSON.parse(request.body)
+      # JSON.parse(request.body)
     end
 
     def post_headers
@@ -49,6 +59,22 @@ module HotelBedsClient
 
     def x_signature
       Digest::SHA256.hexdigest("#{HotelBedsClient.config.api_key}#{HotelBedsClient.config.api_secret}#{Time.current.to_i}")
+    end
+
+    def to_safe_date(date)
+      return if date.blank?
+
+      if date.is_a?(String)
+        raise IncorrectDateFormatError unless date.match?(/\d{4}-\d{2}-\d{2}/)
+
+        date
+      else
+        begin
+          date.strftime('%Y-%m-%d')
+        rescue StandardError
+          raise IncorrectDateFormatError
+        end
+      end
     end
   end
 end
