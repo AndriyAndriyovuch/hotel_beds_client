@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 require_relative '../base'
+require_relative 'models/response'
+require_relative 'models/hotel'
 
 module HotelBedsClient
-  module HotelContent
-    class Hotels < Base
+  module HotelsList
+    class Request < HotelBedsClient::Base
       # QUERY PARAMETERS
       # https://developer.hotelbeds.com/documentation/hotels/content-api/api-reference/#tag/Hotels/operation/hotelsUsingGET
       #
@@ -72,14 +74,12 @@ module HotelBedsClient
           include_hotels: include_hotels,
           fields: fields,
           language: language,
-          from: to_safe_date(from),
-          to: to_safe_date(to),
+          from2: from,
+          to: to,
           use_secondary_language: use_secondary_language,
           last_update_time: to_safe_date(last_update_time),
           pms_room_code: pms_room_code
         }.compact
-
-        options.transform_keys! { |key| key.to_s.camelize(:lower) }
 
         get_request(options: options)
       end

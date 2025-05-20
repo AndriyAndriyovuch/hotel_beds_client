@@ -39,20 +39,22 @@ module HotelBedsClient
       }
     end
 
-    def get_request(_destination_url = nil, options: {})
+    def get_request(destination_url = nil, options: {})
       options.deep_transform_keys! { |key| key.to_s.camelize(:lower) }
+      # options = options.to_json if options.present?
 
-      # request = Faraday.get([url, destination_url].compact.join('/'), options.to_json, headers)
+      request = Faraday.get([url, destination_url].compact.join('/'), options, headers)
 
-      # JSON.parse(request.body)
+      JSON.parse(request.body)
     end
 
-    def post_request(_destination_url = nil, options: {})
+    def post_request(destination_url = nil, options: {})
       options.deep_transform_keys! { |key| key.to_s.camelize(:lower) }
+      options = options.to_json if options.present?
 
-      # request = Faraday.post([url, destination_url].compact.join('/'), options.to_json, post_headers)
+      request = Faraday.post([url, destination_url].compact.join('/'), options, post_headers)
 
-      # JSON.parse(request.body)
+      JSON.parse(request.body)
     end
 
     def post_headers
