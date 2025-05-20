@@ -94,22 +94,17 @@ Contributions are welcome and appreciated! 🙌
 Whether you're fixing bugs, improving documentation, or adding new features to the hotel_beds_client, your help is invaluable.
 
 🛠 How to Contribute
-Fork the repo and create your branch from main:
-
+1. Fork the repo and create your branch from main:
 
 `git checkout -b feature/your-feature-name`
 
-Write tests for your changes (if applicable).
+2. Write tests for your changes (if applicable).
 
-Run tests to make sure everything works:
+3. Commit your changes and push the branch:
 
+4. Open a Pull Request and describe your changes!
 
-bundle exec rake
-Commit your changes and push the branch:
-
-
-git push origin feature/your-feature-name
-Open a Pull Request and describe your changes!
+`git push origin feature/your-feature-name`
 
 #### ✍️ Contribution Guidelines
 
