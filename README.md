@@ -38,21 +38,46 @@ Before making API calls, configure the client with your HotelBeds API credential
 HotelBedsClient.configure do |config|
   config.api_key = 'your_api_key'
   config.secret  = 'your_secret'
-  config.endpoint = 'https://api.test.hotelbeds.com'
+  config.base_url = 'https://api.test.hotelbeds.com' # default value for development
 end
 ```
 
-🚀 Usage Examples
+### 🚀 Usage Examples
 
-Fetch Hotels List
+- `hotels_list`
+
+Fetch a list of hotels from the HotelBeds Content API using various filtering and localization options.
+
+##### Parameters
+| Parameter              | Type                  | Description |
+|------------------------|-----------------------|-------------|
+| `destination_code`     | `String`              | Filter results by a specific destination code. Example: `'PMI'`. |
+| `country_code`         | `String`              | Filter results by a specific country code. Example: `'US'`. |
+| `codes`                | `Array<Integer>`      | Array of specific hotel codes to filter the response by. |
+| `include_hotels`       | `String or Array<String>` | Accepts `'webOnly'`, `'notOnSale'`, or both. Use to include special hotel availability groups. Example: `'webOnly,notOnSale'`. |
+| `fields`               | `String or Array<String>` | Defines which fields to include in the response. Use `'all'` to fetch all available fields. |
+| `language`             | `String`              | Language code for hotel descriptions. Defaults to English if not specified. Example: `'CAS'`. |
+| `from`                 | `Integer`             | Index of the first record to return (pagination). Defaults to `1`. |
+| `to`                   | `Integer`             | Index of the last record to return (pagination). Defaults to `100`. |
+| `use_secondary_language` | `Boolean`          | If `true`, fallback to English for any missing translations in the requested language. |
+| `last_update_time`     | `String (YYYY-MM-DD)` | Filter by last updated date. Only hotels updated after this date will be returned. |
+| `pms_room_code`        | `Boolean`             | If `true`, only return hotels that include at least one PMS room code. Useful for property-level mapping. |
+
+
+###### Example Usage
 ```
 response = HotelBedsClient.hotels_list(
   destination_code: 'PMI',
   country_code: 'ES',
+  codes: [123, 456],
+  include_hotels: 'webOnly,notOnSale',
   fields: 'all',
   language: 'ENG',
-  from: '2024-07-01',
-  to: '2024-07-10'
+  from: 1,
+  to: 100,
+  use_secondary_language: true,
+  last_update_time: '2024-01-01',
+  pms_room_code: true
 )
 
 puts response.hotels.first =>
@@ -60,7 +85,7 @@ puts response.hotels.first =>
 
 puts response.hotels.first.email
  => "email@gmail.com"
-```
+ ```
 
 
 ### 🤝 Contributing
