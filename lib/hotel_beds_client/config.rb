@@ -1,15 +1,19 @@
 # frozen_string_literal: true
 
-class HotelBedsClient::Config
-  def base_url
-    @base_url ||= 'https://api.test.hotelbeds.com'
-  end
+module HotelBedsClient
+  class Config
+    attr_writer :base_url, :api_key, :api_secret
 
-  def api_key
-    @api_key ||= nil
-  end
+    def base_url
+      @base_url ||= 'https://api.test.hotelbeds.com'
+    end
 
-  def api_secret
-    @api_secret ||= nil
+    def api_key
+      @api_key ||= nil
+    end
+
+    def api_secret
+      @api_secret ||= nil
+    end
   end
 end

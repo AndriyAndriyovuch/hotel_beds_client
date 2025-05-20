@@ -1,10 +1,5 @@
 AllCops:
-  TargetRubyVersion: 3.0
-
-require:
-  - rubocop-rspec
-
-AllCops:
+  TargetRubyVersion: 3.0.0
   NewCops: enable
   SuggestExtensions: false
 
@@ -17,34 +12,30 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 200
 
-Style/Documentation:
+Metrics/ParameterLists:
   Enabled: false
 
 Layout/LineLength:
   Max: 140
 
+Naming/VariableNumber:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Style/ArgumentsForwarding:
+  Enabled: false
+
+# Style
+
+Style/Documentation:
+  Enabled: false
+
 Style/HashSyntax:
   Enabled: false
 
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/MultipleMemoizedHelpers:
-  Enabled: false
-
 Style/ClassAndModuleChildren:
-  Enabled: false
-
-RSpec/ExampleLength:
-  Max: 25
-
-RSpec/LetSetup:
-  Enabled: false
-
-RSpec/NestedGroups:
-  Enabled: false
-
-RSpec/MessageSpies:
   Enabled: false
 
 Style/Proc:
@@ -53,23 +44,37 @@ Style/Proc:
 Style/RedundantSelfAssignment:
   Enabled: false
 
-RSpec/IndexedLet:
-  Enabled: false
-
-Naming/MemoizedInstanceVariableName:
-  Enabled: false
-
-RSpec/AnyInstance:
+Style/FileWrite:
   Enabled: false
 
 Style/IfUnlessModifier:
   Enabled: false
 
-RSpec/HookArgument:
-  Enabled: false
+# RSpec
 
-Style/FileWrite:
-  Enabled: false
+# RSpec/IndexedLet:
+#   Enabled: false
 
-Naming/VariableNumber:
-  Enabled: false
+# RSpec/AnyInstance:
+#   Enabled: false
+
+# RSpec/HookArgument:
+#   Enabled: false
+
+# RSpec/ExampleLength:
+#   Max: 25
+
+# RSpec/LetSetup:
+#   Enabled: false
+
+# RSpec/NestedGroups:
+#   Enabled: false
+
+# RSpec/MessageSpies:
+#   Enabled: false
+
+# RSpec/MultipleExpectations:
+#   Enabled: false
+
+# RSpec/MultipleMemoizedHelpers:
+#   Enabled: false

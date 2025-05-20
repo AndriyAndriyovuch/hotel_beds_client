@@ -1,39 +1,101 @@
 # HotelBedsClient
 
-TODO: Delete this and the text below, and describe your gem
+**HotelBedsClient** is a Ruby gem that provides a clean, extensible, and Ruby-friendly interface for interacting with the [HotelBeds API](https://developer.hotelbeds.com/). It supports core API operations including hotel availability, rate checking, booking confirmation, and destination queries (some of them are under development and temporary unavailable).
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hotel_beds_client`. To experiment with that code, run `bin/console` for an interactive prompt.
+### ✨ Features
 
-## Installation
+- ✅ Configurable API credentials and environment
+- 🏨 Hotels list fetching with filtering support
+- 📦 Easy integration with booking, availability, and content endpoints *(in progress)*
+- 🧩 Built-in methods for using response data without additional parsing
+### 📦 Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add this line to your application's Gemfile:
 
-Install the gem and add to the application's Gemfile by executing:
+```
+gem 'hotel_beds_client', git: 'https://github.com/AndriyAndriyovuch/hotel_beds_client'
+```
+Then execute:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+```
+bundle install
+```
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+Or install it yourself with:
 
-## Usage
 
-TODO: Write usage instructions here
+```
+gem install hotel_beds_client
+```
 
-## Development
+### 🔧 Configuration
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Before making API calls, configure the client with your HotelBeds API credentials:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
-## Contributing
+```
+HotelBedsClient.configure do |config|
+  config.api_key = 'your_api_key'
+  config.secret  = 'your_secret'
+  config.endpoint = 'https://api.test.hotelbeds.com'
+end
+```
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hotel_beds_client. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/hotel_beds_client/blob/master/CODE_OF_CONDUCT.md).
+🚀 Usage Examples
 
-## License
+Fetch Hotels List
+```
+response = HotelBedsClient.hotels_list(
+  destination_code: 'PMI',
+  country_code: 'ES',
+  fields: 'all',
+  language: 'ENG',
+  from: '2024-07-01',
+  to: '2024-07-10'
+)
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+puts response.hotels.first =>
+#<HotelBedsClient::HotelContent::HotelsList::Hotel:0x000077481b6ac928
 
-## Code of Conduct
+puts response.hotels.first.email
+ => "email@gmail.com"
+```
 
-Everyone interacting in the HotelBedsClient project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/hotel_beds_client/blob/master/CODE_OF_CONDUCT.md).
+
+### 🤝 Contributing
+Contributions are welcome and appreciated! 🙌
+
+Whether you're fixing bugs, improving documentation, or adding new features to the hotel_beds_client, your help is invaluable.
+
+🛠 How to Contribute
+Fork the repo and create your branch from main:
+
+
+`git checkout -b feature/your-feature-name`
+
+Write tests for your changes (if applicable).
+
+Run tests to make sure everything works:
+
+
+bundle exec rake
+Commit your changes and push the branch:
+
+
+git push origin feature/your-feature-name
+Open a Pull Request and describe your changes!
+
+#### ✍️ Contribution Guidelines
+
+- Keep code style clean and consistent
+- Prefer readability and maintainability
+- Write clear, descriptive commit messages
+- Add or update documentation where needed
+
+Thank You!
+Every PR, issue, or suggestion helps make this gem better. Let's make hotel integrations a breeze together! 🔨🤖🔧
+
+
+### 📄 License
+This gem is available as open source under the terms of the MIT License.
