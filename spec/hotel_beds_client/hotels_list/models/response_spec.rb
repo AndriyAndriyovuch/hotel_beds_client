@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe HotelBedsClient::HotelContent::HotelsList::Response do
+RSpec.describe HotelBedsClient::HotelsList::Models::Response do
   describe '.hotels_list' do
     subject(:res) { described_class.new(data) }
 
@@ -21,7 +21,7 @@ RSpec.describe HotelBedsClient::HotelContent::HotelsList::Response do
       expect(res.hotels_json.sample).to be_a(Hash)
 
       expect(res.hotels).to be_a(Array)
-      expect(res.hotels.sample).to be_a(HotelBedsClient::HotelContent::HotelsList::Hotel)
+      expect(res.hotels.sample).to be_a(HotelBedsClient::HotelsList::Models::Hotel)
     end
   end
 end

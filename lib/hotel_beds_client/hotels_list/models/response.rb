@@ -3,8 +3,8 @@
 require_relative 'hotel'
 
 module HotelBedsClient
-  module HotelContent
-    module HotelsList
+  module HotelsList
+    module Models
       class Response
         attr_accessor :json, :from, :to, :total, :hotels, :hotels_json
 
@@ -20,7 +20,7 @@ module HotelBedsClient
         private
 
         def parse_hotels
-          @hotels_json.map { |hotel| HotelBedsClient::HotelContent::HotelsList::Hotel.new(hotel) }
+          @hotels_json.map { |hotel| HotelBedsClient::HotelsList::Models::Hotel.new(hotel) }
         end
       end
     end

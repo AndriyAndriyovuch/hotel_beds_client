@@ -1,0 +1,304 @@
+{
+  "auditData": {
+    "processTime": "102",
+    "timestamp": "2025-05-25 13:30:52.920",
+    "requestHost": "10.214.139.167",
+    "serverId": "hotel-content-api-6dcf44f5bf-87fpn",
+    "environment": "[int, awseucentral1, k8s, secret, hotel-content-api-6dcf44f5bf-87fpn]",
+    "release": ""
+  },
+  "hotel": {
+    "code": 1,
+    "name": {
+      "content": "Ohtels Villa Dorada"
+    },
+    "description": {
+      "content": "This hotel is located about 150 metres from the fine sandy beach. The lively centre of Cambrils is approximately 10 km away and can be easily reached by the public bus services. There is a stop for public transport right in front of the hotel. The immediate vicinity offers a diverse range of shopping and entertainment facilities including boutiques, restaurants and bars. This hotel comprises a total of 260 rooms spread over 5 floors. Dining options include a café, a bar and an air-conditioned buffet restaurant with highchairs for infants. The tastefully decorated, cosy rooms come with a balcony and satellite TV."
+    },
+    "country": {
+      "code": "ES",
+      "isoCode": "ES",
+      "description": {
+        "content": "Spain"
+      }
+    },
+    "state": {
+      "code": "43",
+      "name": "TARRAGONA"
+    },
+    "destination": {
+      "code": "SAL",
+      "name": {
+        "content": "Salou Area / Costa Dorada"
+      },
+      "countryCode": "ES"
+    },
+    "zone": {
+      "zoneCode": 10,
+      "name": "Salou",
+      "description": {
+        "content": "Salou"
+      }
+    },
+    "coordinates": {
+      "longitude": 1.152529,
+      "latitude": 41.068407
+    },
+    "category": {
+      "code": "3EST",
+      "description": {
+        "content": "3 STARS"
+      }
+    },
+    "categoryGroup": {
+      "code": "GRUPO3",
+      "description": {
+        "content": "Includes 3-star hotels and rural hotels."
+      }
+    },
+    "chain": {
+      "code": "OHTEL",
+      "description": {
+        "content": "OHTELS"
+      }
+    },
+    "accommodationType": {
+      "code": "H",
+      "typeMultiDescription": {
+        "content": "Hotel"
+      },
+      "typeDescription": "Hotel"
+    },
+    "boards": [
+      {
+        "code": "BB",
+        "description": {
+          "content": "BED AND BREAKFAST"
+        }
+      },
+      {
+        "code": "HB",
+        "description": {
+          "content": "HALF BOARD"
+        }
+      },
+      {
+        "code": "RO",
+        "description": {
+          "content": "ROOM ONLY"
+        }
+      },
+      {
+        "code": "FB",
+        "description": {
+          "content": "FULL BOARD"
+        }
+      },
+      {
+        "code": "AI",
+        "description": {
+          "content": "ALL INCLUSIVE"
+        }
+      }
+    ],
+    "segments": [
+      {
+        "code": 81,
+        "description": {
+          "content": "Family hotels "
+        }
+      },
+      {
+        "code": 37,
+        "description": {
+          "content": "Beach hotels"
+        }
+      }
+    ],
+    "address": {
+      "content": "Carrer Del Vendrell, 11",
+      "street": "Carrer Del Vendrell",
+      "number": "11"
+    },
+    "postalCode": "43840",
+    "city": {
+      "content": "SALOU"
+    },
+    "email": "comercial@ohtels.es",
+    "license": "HT-000473",
+    "giataCode": 35142,
+    "phones": [
+      {
+        "phoneNumber": "+34977385511",
+        "phoneType": "PHONEBOOKING"
+      },
+      {
+        "phoneNumber": "+34977385511",
+        "phoneType": "PHONEHOTEL"
+      },
+      {
+        "phoneNumber": "977381754",
+        "phoneType": "PHONEMANAGEMENT"
+      },
+      {
+        "phoneNumber": "+34977384612",
+        "phoneType": "FAXNUMBER"
+      }
+    ],
+    "rooms": [
+      {
+        "roomCode": "APT.B2",
+        "isParentRoom": false,
+        "minPax": 1,
+        "maxPax": 10,
+        "maxAdults": 10,
+        "maxChildren": 6,
+        "minAdults": 1,
+        "description": "APARTMENT TWO BEDROOMS",
+        "type": {
+          "code": "APT",
+          "description": {
+            "content": "APARTMENT"
+          }
+        },
+        "characteristic": {
+          "code": "B2",
+          "description": {
+            "content": "TWO BEDROOMS"
+          }
+        }
+      },
+      {
+        "roomCode": "DBL.BL",
+        "isParentRoom": false,
+        "minPax": 1,
+        "maxPax": 4,
+        "maxAdults": 4,
+        "maxChildren": 3,
+        "minAdults": 1,
+        "description": "DOUBLE WITH BALCONY",
+        "type": {
+          "code": "DBL",
+          "description": {
+            "content": "DOUBLE"
+          }
+        },
+        "characteristic": {
+          "code": "BL",
+          "description": {
+            "content": "WITH BALCONY"
+          }
+        }
+      }
+    ],
+    "facilities": [
+      {
+        "facilityCode": 70,
+        "facilityGroupCode": 10,
+        "description": {
+          "content": "Total number of rooms"
+        },
+        "order": 1,
+        "indYesOrNo": false,
+        "number": 260,
+        "voucher": false
+      },
+      {
+        "facilityCode": 50,
+        "facilityGroupCode": 10,
+        "description": {
+          "content": "Number of floors (main building)"
+        },
+        "order": 1,
+        "number": 5,
+        "voucher": false
+      }
+    ],
+    "terminals": [
+      {
+        "terminalCode": "BCN",
+        "terminalType": "A",
+        "distance": 110,
+        "name": {
+          "content": "Barcelona, El Prat Airport"
+        },
+        "description": {
+          "content": "Airport"
+        }
+      },
+      {
+        "terminalCode": "REU",
+        "terminalType": "A",
+        "distance": 15,
+        "name": {
+          "content": "Tarragona, Reus Airport"
+        },
+        "description": {
+          "content": "Airport"
+        }
+      }
+    ],
+    "interestPoints": [
+      {
+        "facilityCode": 40,
+        "facilityGroupCode": 100,
+        "order": 1,
+        "poiName": "Barcelona",
+        "distance": "100000"
+      },
+      {
+        "facilityCode": 50,
+        "facilityGroupCode": 100,
+        "order": 1,
+        "poiName": "reus",
+        "distance": "15000"
+      }
+    ],
+    "images": [
+      {
+        "type": {
+          "code": "RES",
+          "description": {
+            "content": "Restaurant"
+          }
+        },
+        "path": "00/000001/000001a_hb_r_001.JPG",
+        "order": 1,
+        "visualOrder": 506
+      },
+      {
+        "type": {
+          "code": "RES",
+          "description": {
+            "content": "Restaurant"
+          }
+        },
+        "path": "00/000001/000001a_hb_r_002.JPG",
+        "order": 2,
+        "visualOrder": 505
+      }
+    ],
+    "wildcards": [
+      {
+        "roomType": "DBT.ST-2",
+        "roomCode": "DBT",
+        "characteristicCode": "ST-2",
+        "hotelRoomDescription": {
+          "content": "SINGLE PARENT ROOM  1 ADULT+1 CHILD"
+        }
+      },
+      {
+        "roomType": "QUA.ST-2",
+        "roomCode": "QUA",
+        "characteristicCode": "ST-2",
+        "hotelRoomDescription": {
+          "content": "STANDARD ROOM (4 ADULTS)"
+        }
+      }
+    ],
+    "web": "http://www.ohtels.es/",
+    "lastUpdate": "2025-03-16",
+    "S2C": "4*",
+    "ranking": 39
+  }
+}
