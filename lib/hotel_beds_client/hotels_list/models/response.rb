@@ -20,7 +20,7 @@ module HotelBedsClient
         private
 
         def parse_hotels
-          @hotels_json.map { |hotel| Hotel.new(hotel) }
+          @hotels_json.map { |hotel| HotelBedsClient::HotelContent::HotelsList::Hotel.new(hotel) }
         end
       end
     end
