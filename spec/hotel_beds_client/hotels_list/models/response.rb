@@ -1,18 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe HotelBedsClient do
+RSpec.describe HotelBedsClient::HotelContent::HotelsList::Response do
   describe '.hotels_list' do
-    subject(:res) { HotelBedsClient.hotels_list }
+    subject(:res) { described_class.new(data) }
 
-    before do
-      request_stub = JSON.parse(File.read('spec/shared_context/stubs/hotels_list_stub.json'))
-
-      allow(HotelBedsClient::HotelsList::Request).to receive(:call).and_return(request_stub)
-    end
-
-    it 'returns correct class' do
-      expect(res).to be_a(HotelBedsClient::HotelContent::HotelsList::Response)
-    end
+    let(:data) { JSON.parse(File.read('spec/shared_context/stubs/hotels_list_stub.json')) }
 
     it 'returns correct keys' do
       expect(res.instance_variables).to contain_exactly(:@json, :@from, :@to, :@total, :@hotels_json, :@hotels)

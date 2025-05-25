@@ -66,6 +66,11 @@ Fetch a list of hotels from the HotelBeds Content API using various filtering an
 
 ###### Example Usage
 ```
+
+response = HotelBedsClient.hotels_list
+
+# or with params
+
 response = HotelBedsClient.hotels_list(
   destination_code: 'PMI',
   country_code: 'ES',
