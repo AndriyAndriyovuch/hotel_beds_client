@@ -5,7 +5,7 @@ module HotelBedsClient
     attr_reader :url
 
     def initialize(args = {})
-      raise NonKeywordArgumentsError if args.present? && !args.is_a?(Hash)
+      raise NonKeywordArgumentsError unless args.is_a?(Hash)
 
       @url = [HotelBedsClient.config.base_url, api_type, api_version, request_url].join('/')
 
@@ -40,7 +40,7 @@ module HotelBedsClient
     end
 
     def get_request(destination_url = nil, options: {})
-      options.deep_transform_keys! { |key| key.to_s.camelize(:lower) }
+      options.deep_transform_keys! { |key| key.to_s.camelize(:lower) }.compact!
       # options = options.to_json if options.present?
 
       request = Faraday.get([url, destination_url].compact.join('/'), options, headers)
@@ -49,8 +49,8 @@ module HotelBedsClient
     end
 
     def post_request(destination_url = nil, options: {})
-      options.deep_transform_keys! { |key| key.to_s.camelize(:lower) }
-      options = options.to_json if options.present?
+      options.deep_transform_keys! { |key| key.to_s.camelize(:lower) }.compact!
+      # options = options.to_json if options.present?
 
       request = Faraday.post([url, destination_url].compact.join('/'), options, post_headers)
 
@@ -66,7 +66,7 @@ module HotelBedsClient
     end
 
     def to_safe_date(date)
-      return if date.blank?
+      return if date.nil?
 
       if date.is_a?(String)
         raise IncorrectDateFormatError unless date.match?(/\d{4}-\d{2}-\d{2}/)

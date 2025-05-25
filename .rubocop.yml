@@ -6,6 +6,12 @@ AllCops:
 Metrics/MethodLength:
   Max: 25
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - hotel_beds_client.gemspec
+
+
 Metrics/AbcSize:
   Max: 25
 

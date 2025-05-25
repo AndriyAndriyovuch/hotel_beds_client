@@ -15,8 +15,8 @@ require_relative 'hotel_beds_client/booking/confirmation'
 require_relative 'hotel_beds_client/destinations/main'
 
 # HotelContent
-require_relative 'hotel_beds_client/hotels_list/request'
-require_relative 'hotel_beds_client/hotel_content/hotel_details'
+require_relative 'hotel_beds_client/hotels_list/main'
+require_relative 'hotel_beds_client/hotel_details/main'
 
 require 'json'
 require 'digest'
@@ -36,20 +36,18 @@ module HotelBedsClient
 
     def hotels_list(destination_code: nil, country_code: nil, codes: [], include_hotels: nil, fields: 'all', language: nil,
                     from: nil, to: nil, use_secondary_language: false, last_update_time: nil, pms_room_code: false)
-      res = HotelBedsClient::HotelsList::Request.call(destination_code: destination_code, country_code: country_code,
-                                                      codes: codes, include_hotels: include_hotels, fields: fields,
-                                                      language: language, from: from, to: to,
-                                                      use_secondary_language: use_secondary_language,
-                                                      last_update_time: last_update_time, pms_room_code: pms_room_code)
-
-      HotelBedsClient::HotelContent::HotelsList::Response.new(res)
+      HotelBedsClient::HotelsList::Main.call(destination_code: destination_code, country_code: country_code,
+                                             codes: codes, include_hotels: include_hotels, fields: fields,
+                                             language: language, from: from, to: to,
+                                             use_secondary_language: use_secondary_language,
+                                             last_update_time: last_update_time, pms_room_code: pms_room_code)
     end
 
-    # def hotel_details(hotel_codes:, language: nil, user_secondary_language: nil)
-    #   HotelBedsClient::HotelContent::HotelDetails.call(hotel_codes: hotel_codes,
-    #                                                    language: language,
-    #                                                    user_secondary_language: user_secondary_language)
-    # end
+    def hotel_details(hotel_codes:, language: nil, user_secondary_language: nil)
+      HotelBedsClient::HotelDetails::Main.call(hotel_codes: hotel_codes,
+                                               language: language,
+                                               user_secondary_language: user_secondary_language)
+    end
 
     # def booking_availability(stay:, occupancies:, geolocation: {}, filter: {}, boards: {}, rooms: {},
     #                          daily_rate: false, source_market: nil, aif_use: false, platform: nil,

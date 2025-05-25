@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 module HotelBedsClient
-  module HotelsList
+  module HotelDetails
     module Models
       class Hotel
-        ALLOWED_KEYS = %w[code name description country_code state_code destination_code zone_code coordinates category_code
-                          category_group_code chain_code accommodation_type_code board_codes segment_codes address
-                          postal_code city email license giata_code phones rooms facilities terminals
-                          interest_points images wildcards web last_update s2_c ranking].freeze
+        ALLOWED_KEYS = %w[s2_c accommodation_type address boards category category_group chain city code coordinates
+                          country description destination email facilities giata_code images interest_points last_update
+                          license name phones postal_code ranking rooms segments state terminals web wildcards zone].freeze
 
         attr_reader :json_data
 
