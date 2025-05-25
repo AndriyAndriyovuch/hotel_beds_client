@@ -17,7 +17,7 @@ module HotelBedsClient
           data.each do |key, value|
             method_name = key.to_s.underscore
 
-            # next unless ALLOWED_KEYS.include?(key.to_s)
+            next unless ALLOWED_KEYS.include?(method_name)
 
             define_singleton_method(method_name) { value }
           end
