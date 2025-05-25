@@ -85,13 +85,43 @@ response = HotelBedsClient.hotels_list(
   pms_room_code: true
 )
 
-puts response.hotels.first =>
+response.hotels.first =>
 #<HotelBedsClient::HotelContent::HotelsList::Hotel:0x000077481b6ac928
 
-puts response.hotels.first.email
+response.hotels.first.email
  => "email@gmail.com"
  ```
 
+- `hotels_list`
+
+Fetch a list of hotels from the HotelBeds Content API using various filtering and localization options.
+
+##### Parameters
+| Parameter              | Type                  | Description |
+|------------------------|-----------------------|-------------|
+| `hotel_codes` *     | `Array`              | Code or codes of specific hotels from which to get details. Example: `[5]`. |
+| `language`         | `String`              | The language code for the language in which you want the descriptions to be returned. Example: `'US'`. |
+| `use_secondary_language`                | `Boolean`      | Defines if you want to receive the descriptions in English if the description is not available in the language requested |
+
+
+
+###### Example Usage
+```
+
+response = HotelBedsClient.hotel_details(hotel_codes: [1067])
+
+# or with params
+
+response = HotelBedsClient.hotel_details(hotel_codes: [1067],
+                                         language: 'ES',
+                                         use_secondary_language: true)
+
+response.hotel =>
+#<HotelBedsClient::HotelContent::HotelsList::Hotel:0x000077481b6ac928
+
+response.hotel.email
+ => "email@gmail.com"
+ ```
 
 ### 🤝 Contributing
 Contributions are welcome and appreciated! 🙌
