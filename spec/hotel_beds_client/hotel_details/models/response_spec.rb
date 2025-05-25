@@ -7,13 +7,15 @@ RSpec.describe HotelBedsClient::HotelDetails::Models::Response do
     let(:data) { JSON.parse(File.read('spec/shared_context/stubs/hotel_details_stub.json')) }
 
     it 'returns correct keys' do
-      expect(res.instance_variables).to contain_exactly(:@json, :@hotel_json, :@hotel)
+      expect(res.instance_variables).to contain_exactly(:@json, :@hotels_json, :@hotels)
     end
 
     it 'returns correct value types' do
       expect(res.json).to be_a(Hash)
-      expect(res.hotel_json).to be_a(Hash)
-      expect(res.hotel).to be_a(HotelBedsClient::HotelDetails::Models::Hotel)
+      expect(res.hotels_json).to be_a(Array)
+
+      expect(res.hotels).to be_a(Array)
+      expect(res.hotels.first).to be_a(HotelBedsClient::HotelDetails::Models::Hotel)
     end
   end
 end
