@@ -13,10 +13,11 @@ module HotelBedsClient
 
         def initialize(data)
           @json_data = data
+
           data.each do |key, value|
             method_name = key.to_s.underscore
 
-            next unless ALLOWED_KEYS.include?(key)
+            # next unless ALLOWED_KEYS.include?(key.to_s)
 
             define_singleton_method(method_name) { value }
           end
