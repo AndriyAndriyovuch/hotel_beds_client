@@ -116,10 +116,10 @@ response = HotelBedsClient.hotel_details(hotel_codes: [1067],
                                          language: 'ES',
                                          use_secondary_language: true)
 
-response.hotel =>
+response.hotels.first =>
 #<HotelBedsClient::HotelContent::HotelsList::Hotel:0x000077481b6ac928
 
-response.hotel.email
+response.hotels.first.email
  => "email@gmail.com"
  ```
 
